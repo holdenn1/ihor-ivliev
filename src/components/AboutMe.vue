@@ -69,11 +69,38 @@ import MyLinks from "./MyLinks.vue";
         line-height: 56px;
         letter-spacing: 3px;
         text-transform: uppercase;
+        animation-name: name;
+        animation-duration: 1.5s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        opacity: 0;
+        transform: translate(-360px, 0);
+
+        @keyframes name {
+          100% {
+            opacity: 1;
+            transform: translate(0px, 0);
+          }
+        }
       }
 
       .my-position {
         display: flex;
         align-items: center;
+        animation-name: position;
+        animation-duration: 2s;
+        animation-timing-function: ease;
+        animation-delay: 0.5s;
+        opacity: 0;
+        transform: translate(-420px, 0);
+        animation-fill-mode: forwards;
+
+        @keyframes position {
+          100% {
+            opacity: 1;
+            transform: translate(0px, 0);
+          }
+        }
         .position-line-wrapper {
           position: relative;
           transform: rotate(270deg);
@@ -114,6 +141,20 @@ import MyLinks from "./MyLinks.vue";
         font-weight: 400;
         line-height: 26px;
         letter-spacing: 0.8px;
+        animation-name: description;
+        animation-duration: 2s;
+        animation-timing-function: ease;
+        animation-delay: 1s;
+        opacity: 0;
+        transform: translate(-560px, 0);
+        animation-fill-mode: forwards;
+
+        @keyframes description {
+          100% {
+            opacity: 1;
+            transform: translate(0px, 0);
+          }
+        }
       }
     }
 
@@ -125,6 +166,21 @@ import MyLinks from "./MyLinks.vue";
       .links-content {
         width: 100%;
         padding: 0 10px;
+        margin-bottom: 30px;
+        animation-name: links;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 2s;
+        opacity: 0;
+        transform: translate(0, 100px);
+        animation-fill-mode: forwards;
+
+        @keyframes links {
+          100% {
+            opacity: 1;
+            transform: translate(0px, 0);
+          }
+        }
       }
     }
   }

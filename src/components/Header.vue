@@ -1,7 +1,12 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <img class="header-logo" src="./../icons/LOGO.svg" alt="" />
+      <img
+        @click="scrollTop"
+        class="header-logo"
+        src="./../icons/LOGO.svg"
+        alt=""
+      />
       <nav class="header-nav">
         <ul class="header-nav-list">
           <li class="header-nav-list__item" @click="scrollTop()">About</li>
@@ -85,6 +90,19 @@ function hideBlock() {
   top: 0;
   left: 0;
   z-index: 1000;
+
+  animation-name: header;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0.5s;
+        opacity: 0;
+        animation-fill-mode: forwards;
+
+        @keyframes header {
+          100% {
+            opacity: 1;
+          }
+        }
   .header-container {
     height: 100%;
     max-width: 1220px;
@@ -94,6 +112,7 @@ function hideBlock() {
     align-items: center;
     .header-logo {
       margin-right: 60px;
+      cursor: pointer;
     }
     .header-nav {
       max-width: 606px;
