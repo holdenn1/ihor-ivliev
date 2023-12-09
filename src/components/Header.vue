@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'fixed-header': changeHeader }">
     <div class="header-container">
       <img
         @click="scrollTop"
@@ -57,9 +57,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
 
 const blockVisible = ref<boolean>(false);
+const changeHeader = ref<boolean>(false);
 
 function scrollToElement(elementId: string) {
   const element = document.getElementById(elementId);
@@ -79,6 +80,29 @@ function showBlock() {
 function hideBlock() {
   blockVisible.value = false;
 }
+
+const scrollPosition = ref(window.pageYOffset);
+
+const handleScroll = () => {
+  scrollPosition.value = window.pageYOffset;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+watchEffect(() => {
+  if (scrollPosition.value > 0) {
+    changeHeader.value = true;
+  }
+  if (scrollPosition.value === 0) {
+    changeHeader.value = false;
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -87,23 +111,44 @@ function hideBlock() {
   height: 106px;
   padding: 0 10px;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
   z-index: 1000;
-
   animation-name: header;
   animation-duration: 1s;
   animation-timing-function: ease;
   animation-delay: 0.5s;
-  opacity: 0;
   animation-fill-mode: forwards;
-  background-color: rebeccapurple;
-
+  transition: 2s;
+  opacity: 0;
   @keyframes header {
     100% {
       opacity: 1;
     }
   }
+
+  &:after {
+    
+    content: '';
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: -2px;
+    left: 0;
+    z-index: 1000;
+
+    background: rgb(7, 2, 92);
+    background: linear-gradient(
+      213deg,
+      rgb(5, 2, 61) 24%,
+      #07025c 49%,
+      rgb(59, 1, 25) 88%
+    );
+    opacity: 0;
+    transition: 1s;
+  }
+
+ 
   .header-container {
     height: 100%;
     max-width: 1220px;
@@ -114,10 +159,14 @@ function hideBlock() {
     .header-logo {
       margin-right: 60px;
       cursor: pointer;
+      position: relative;
+      z-index: 2000;
     }
     .header-nav {
       max-width: 606px;
       width: 100%;
+      position: relative;
+      z-index: 2000;
       .header-nav-list {
         display: flex;
         justify-content: space-between;
@@ -185,6 +234,12 @@ function hideBlock() {
         }
       }
     }
+  }
+}
+
+.fixed-header {
+  &::after{
+    opacity: 1;
   }
 }
 </style>

@@ -37,6 +37,7 @@ const openEmail = () => {
   display: flex;
   justify-content: space-between;
   &__item {
+    cursor: pointer;
     .my-link-image{
       transition: 0.3s;
       &:hover{

@@ -62,7 +62,7 @@
       <div class="work-item">
         <div class="work-description-block">
           <h3 class="work-name" style="margin-bottom: 12px">
-            “Техносток”/Zaporizhzhia
+            “Техносток” / Zaporizhzhia
           </h3>
 
           <h4 class="work-position-title">Retail Trade Manager</h4>

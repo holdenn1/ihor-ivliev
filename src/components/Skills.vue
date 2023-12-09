@@ -48,7 +48,6 @@ const skills = [
 
 const observer = new IntersectionObserver(([entry]) => {
   if (entry.isIntersecting) {
-    console.log(1);
     isAnimation.value = true;
     observer.disconnect();
   }
