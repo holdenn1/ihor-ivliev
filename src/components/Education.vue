@@ -1,7 +1,12 @@
 <template>
-  <div id="education" class="education">
+  <div
+    ref="educationObserveElement"
+    id="education"
+    class="education"
+    :class="{ 'animation-education': isAnimation }"
+  >
     <div class="education__content">
-      <TitleBlock title="Education">
+      <TitleBlock title="Education" style="margin-bottom: 90px">
         <img src="./../icons/Edit.svg" alt="" />
       </TitleBlock>
       <div class="education-block">
@@ -30,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import CustomVerticalLine from "./CustomVerticalLine.vue";
 import EducationItem from "./EducationItem.vue";
 import TitleBlock from "./TitleBlock.vue";
@@ -75,6 +81,23 @@ const additionalEducationA = [
     years: "2019-2020 y.",
   },
 ];
+
+const observer = new IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+    isAnimation.value = true;
+    observer.disconnect();
+  }
+});
+
+const educationObserveElement = ref();
+
+const isAnimation = ref(false);
+
+onMounted(() => {
+  observer.observe(educationObserveElement.value);
+});
+
+onBeforeUnmount(() => observer.disconnect());
 </script>
 
 <style lang="scss" scoped>
@@ -87,11 +110,28 @@ const additionalEducationA = [
     .education-block {
       display: flex;
       justify-content: space-between;
+      height: 560px;
       .main-education {
       }
 
       .additional-education {
       }
+    }
+  }
+}
+.animation-education {
+  animation-name: education;
+  animation-duration: 1.2s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease;
+  opacity: 0;
+  transform: translate(0, 250px);
+  animation-fill-mode: forwards;
+
+  @keyframes education {
+    100% {
+      opacity: 1;
+      transform: translate(0, 0px);
     }
   }
 }

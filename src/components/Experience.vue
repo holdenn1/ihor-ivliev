@@ -1,5 +1,5 @@
 <template>
-  <div id="experience" class="experience">
+  <div ref="experienceObserverElement" id="experience" class="experience" :class="{ 'animation-experience': isAnimation }">
     <div class="experience__content">
       <TitleBlock title="Experience">
         <img src="./../icons/Case.svg" alt="" />
@@ -98,6 +98,7 @@ import bookshelf from "./../icons/images/bookshelf.png";
 import github from "./../icons/images/Github.svg";
 import preview from "./../icons/images/Play.svg";
 import seller from "./../icons/images/seller.png";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const projects = [
   {
@@ -186,6 +187,23 @@ const projects = [
     linkPreview: "https://holdenn1.github.io/bookShelf/#",
   },
 ];
+
+const observer = new IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+    isAnimation.value = true;
+    observer.disconnect();
+  }
+});
+
+const experienceObserverElement = ref();
+
+const isAnimation = ref(false);
+
+onMounted(() => {
+  observer.observe(experienceObserverElement.value);
+});
+
+onBeforeUnmount(() => observer.disconnect());
 </script>
 
 <style lang="scss" scoped>
@@ -279,6 +297,23 @@ const projects = [
           }
         }
       }
+    }
+  }
+}
+
+.animation-experience {
+  animation-name: experience;
+  animation-duration: 1.2s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease;
+  opacity: 0;
+  transform: translate(0, 250px);
+  animation-fill-mode: forwards;
+
+  @keyframes experience {
+    100% {
+      opacity: 1;
+      transform: translate(0, 0px);
     }
   }
 }

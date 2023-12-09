@@ -1,5 +1,10 @@
 <template>
-  <div id="skills" class="skills">
+  <div
+    ref="skillsObserveElement"
+    id="skills"
+    class="skills"
+    :class="{ 'animation-skills': isAnimation }"
+  >
     <div class="skills__content">
       <TitleBlock style="margin-bottom: 80px" title="Skills">
         <img src="./../icons/Shield.svg" alt="" />
@@ -26,6 +31,7 @@ import node from "./../icons/skills/nodejs.svg";
 import nest from "./../icons/skills/NestJS.svg";
 import postgres from "./../icons/skills/Postgresql.svg";
 import firebase from "./../icons/skills/firebase.svg";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const skills = [
   { id: 1, skill: "Sass", icon: sass },
@@ -39,6 +45,24 @@ const skills = [
   { id: 9, skill: "PostgreSQL", icon: postgres },
   { id: 10, skill: "Firebase", icon: firebase },
 ];
+
+const observer = new IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+    console.log(1);
+    isAnimation.value = true;
+    observer.disconnect();
+  }
+});
+
+const skillsObserveElement = ref();
+
+const isAnimation = ref(false);
+
+onMounted(() => {
+  observer.observe(skillsObserveElement.value);
+});
+
+onBeforeUnmount(() => observer.disconnect());
 </script>
 
 <style lang="scss" scoped>
@@ -48,7 +72,6 @@ const skills = [
   width: 100%;
   .skills__content {
     width: 100%;
-
     .skills-list {
       width: 100%;
       height: 552px;
@@ -59,6 +82,7 @@ const skills = [
       align-items: center;
       justify-content: space-between;
       align-content: space-between;
+      padding-bottom: 20px;
       .skill {
         .skill-image {
           height: 150px;
@@ -74,6 +98,23 @@ const skills = [
           letter-spacing: 1px;
         }
       }
+    }
+  }
+}
+
+.animation-skills {
+  animation-name: skills;
+  animation-duration: 1.2s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease;
+  opacity: 0;
+  transform: translate(0, 250px);
+  animation-fill-mode: forwards;
+
+  @keyframes skills {
+    100% {
+      opacity: 1;
+      transform: translate(0, 0px);
     }
   }
 }

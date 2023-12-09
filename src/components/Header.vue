@@ -92,17 +92,18 @@ function hideBlock() {
   z-index: 1000;
 
   animation-name: header;
-        animation-duration: 1s;
-        animation-timing-function: ease;
-        animation-delay: 0.5s;
-        opacity: 0;
-        animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  background-color: rebeccapurple;
 
-        @keyframes header {
-          100% {
-            opacity: 1;
-          }
-        }
+  @keyframes header {
+    100% {
+      opacity: 1;
+    }
+  }
   .header-container {
     height: 100%;
     max-width: 1220px;

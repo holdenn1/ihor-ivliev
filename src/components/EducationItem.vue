@@ -13,7 +13,7 @@ defineProps<{ title: string; description: string; years: string }>();
 <style lang="scss" scoped>
 .education-item {
   max-width: 436px;
-  height: 152px;
+  max-height: 152px;
   margin-bottom: 40px;
   &:last-child {
     margin: 0;
