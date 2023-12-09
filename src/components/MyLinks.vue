@@ -1,23 +1,25 @@
 <template>
   <div class="my-links">
     <a class="my-links__item" target="_blank" href="https://github.com/holdenn1"
-      ><img src="./../icons/Github.svg" alt="github"
+      ><img class="my-link-image" src="./../icons/Github.svg" alt="github"
     /></a>
-    <img
-      class="my-links__item"
-      @click="openEmail"
-      src="./../icons/Mega.svg"
-      alt="gmail"
-    />
+    <div class="my-links__item">
+      <img
+        class="my-link-image"
+        @click="openEmail"
+        src="./../icons/Mega.svg"
+        alt="gmail"
+      />
+    </div>
 
     <a
       class="my-links__item"
       target="_blank"
       href="https://www.linkedin.com/in/ihor-ivliev-59ab381b4/"
-      ><img src="./../icons/LinkedIn.svg" alt="linkedin"
+      ><img class="my-link-image" src="./../icons/LinkedIn.svg" alt="linkedin"
     /></a>
     <a class="my-links__item" target="_blank" href="https://t.me/ihor_ivlievv"
-      ><img src="./../icons/Telegram.svg" alt="telegram"
+      ><img class="my-link-image" src="./../icons/Telegram.svg" alt="telegram"
     /></a>
   </div>
 </template>
@@ -35,6 +37,12 @@ const openEmail = () => {
   display: flex;
   justify-content: space-between;
   &__item {
+    .my-link-image{
+      transition: 0.3s;
+      &:hover{
+        transform: scale(1.15,1.15);
+      }
+    }
   }
 }
 </style>

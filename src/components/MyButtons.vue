@@ -24,13 +24,17 @@ const openEmail = () => {
   justify-content: space-between;
   .contact-me {
     display: flex;
-    width: 206px;
+    width: 200px;
     height: 58px;
     padding: 18px 24px;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
     background: #9d1837;
+    transition: 0.5s;
+    &:hover{
+      background: #DD1853;
+    }
     span {
       color: var(--colors-theme-white, #fff);
       font-style: normal;
@@ -42,7 +46,7 @@ const openEmail = () => {
   }
   .download-cv {
     display: flex;
-    width: 206px;
+    width: 200px;
     height: 58px;
     padding: 18px 24px;
     justify-content: center;
@@ -50,6 +54,10 @@ const openEmail = () => {
     gap: 12px;
     border-radius: 6px;
     border: 3px solid #9d1837;
+    transition: 0.5s;
+    &:hover{
+      border: 3px solid #F2064D;
+    }
     span {
       color: var(--colors-theme-white, #fff);
       font-style: normal;

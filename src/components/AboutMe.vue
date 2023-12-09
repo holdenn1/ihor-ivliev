@@ -53,7 +53,7 @@ import MyLinks from "./MyLinks.vue";
   height: 758px;
   overflow: hidden;
   &__content {
-    margin: 124px 0px 116px;
+    margin: 110px 0px 116px;
     display: flex;
     justify-content: space-between;
     .about-text-block {
@@ -83,13 +83,13 @@ import MyLinks from "./MyLinks.vue";
             border-radius: 100%;
             border: 4px solid #a52140;
             position: absolute;
-            left:   50%;
+            left: 50%;
             top: 60px;
             transform: translate(-50%, -50%);
           }
           .position-line {
-            width:  72px;
-            height:  3px;
+            width: 72px;
+            height: 3px;
             background-color: #a52140;
             transform: rotate(90deg);
           }
@@ -103,12 +103,12 @@ import MyLinks from "./MyLinks.vue";
           font-weight: 700;
           line-height: 24px;
           letter-spacing: 1.5px;
-          padding-left: 100px;
+          padding-left: 50px;
         }
       }
       .my-description {
         color: var(--colors-theme-white, #fff);
-        font-family: IBM Plex Sans Condensed;
+        font-family: IBM Plex Sans;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -124,6 +124,7 @@ import MyLinks from "./MyLinks.vue";
       align-items: center;
       .links-content {
         width: 100%;
+        padding: 0 10px;
       }
     }
   }
