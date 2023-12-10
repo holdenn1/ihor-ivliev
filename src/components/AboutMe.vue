@@ -70,6 +70,7 @@ import MyLinks from "./MyLinks.vue";
         letter-spacing: 3px;
         text-transform: uppercase;
         animation-name: name;
+        animation-delay: 0.2s;
         animation-duration: 1.5s;
         animation-timing-function: ease;
         animation-fill-mode: forwards;
