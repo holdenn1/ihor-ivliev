@@ -1,6 +1,10 @@
 <template>
-  <div ref="experienceObserverElement" id="experience" class="experience" :class="{ 'animation-experience': isAnimation }">
-    <div class="experience__content">
+  <div
+    id="experience"
+    class="experience"
+    :class="{ 'animation-experience': isAnimation }"
+  >
+    <div ref="experienceObserverElement" class="experience__content">
       <TitleBlock title="Experience">
         <img src="./../icons/Case.svg" alt="" />
       </TitleBlock>

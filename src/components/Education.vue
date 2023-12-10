@@ -1,11 +1,11 @@
 <template>
   <div
-    ref="educationObserveElement"
+    
     id="education"
     class="education"
     :class="{ 'animation-education': isAnimation }"
   >
-    <div class="education__content">
+    <div ref="educationObserveElement" class="education__content">
       <TitleBlock title="Education" style="margin-bottom: 90px">
         <img src="./../icons/Edit.svg" alt="" />
       </TitleBlock>
