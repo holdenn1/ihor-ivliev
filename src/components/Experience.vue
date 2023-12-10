@@ -210,6 +210,7 @@ onBeforeUnmount(() => observer.disconnect());
 .experience {
   width: 100%;
   padding-top: 106px;
+  opacity: 0;
   &__content {
     width: 100%;
   }
@@ -232,6 +233,7 @@ onBeforeUnmount(() => observer.disconnect());
       .project-description-block,
       .work-description-block {
         max-width: 474px;
+        width: 100%;
 
         .project-name,
         .work-name {

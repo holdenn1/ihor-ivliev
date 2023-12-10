@@ -105,6 +105,7 @@ onBeforeUnmount(() => observer.disconnect());
   margin: 0px 0 74px;
   padding-top: 106px;
   width: 100%;
+  opacity: 0;
   &__content {
     width: 100%;
     .education-block {

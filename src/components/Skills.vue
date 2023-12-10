@@ -1,11 +1,6 @@
 <template>
-  <div
-    ref="skillsObserveElement"
-    id="skills"
-    class="skills"
-    :class="{ 'animation-skills': isAnimation }"
-  >
-    <div class="skills__content">
+  <div id="skills" class="skills" :class="{ 'animation-skills': isAnimation }">
+    <div ref="skillsObserveElement" class="skills__content">
       <TitleBlock style="margin-bottom: 80px" title="Skills">
         <img src="./../icons/Shield.svg" alt="" />
       </TitleBlock>
@@ -69,6 +64,7 @@ onBeforeUnmount(() => observer.disconnect());
   margin: 0px 0 74px;
   padding-top: 110px;
   width: 100%;
+  opacity: 0;
   .skills__content {
     width: 100%;
     .skills-list {
