@@ -1,13 +1,13 @@
 <template>
   <Header />
   <div class="container">
-    <AboutMe/>
-    <Skills/>
-    <Education/>
-    <Experience/>
-    <ContactMe/>
+    <AboutMe />
+    <Skills />
+    <Education />
+    <Experience />
+    <ContactMe />
   </div>
-  <Footer/>
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -26,6 +26,5 @@ import Footer from "./components/Footer.vue";
   margin: 0 auto;
   padding: 106px 10px 0;
   position: relative;
-
 }
 </style>
