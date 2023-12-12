@@ -3,7 +3,7 @@
     <button type="button" @click="openEmail" class="contact-me">
       <span>CONTACT ME</span>
     </button>
-    <button class="download-cv">
+    <button type="button" @click="downloadCV" class="download-cv">
       <span>DOWNLOAD CV</span>
       <img src="./../icons/download.svg" alt="download" />
     </button>
@@ -15,6 +15,17 @@ const openEmail = () => {
   const email = "ihor.ivlievv@gmail.com";
   window.location.href = `mailto:${email}`;
 };
+
+const url = 'https://drive.google.com/uc?id=1ix8TFD-_RMbo0Bc2pCGBnClB3iwTSbqp&export=download'
+
+const downloadCV = () => {
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'CV_Ihor_Ivliev_Full-stack_developer'
+  a.click()
+  window.URL.revokeObjectURL(url)
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -32,8 +43,8 @@ const openEmail = () => {
     border-radius: 6px;
     background: #9d1837;
     transition: 0.5s;
-    &:hover{
-      background: #DD1853;
+    &:hover {
+      background: #dd1853;
     }
     span {
       color: var(--colors-theme-white, #fff);
@@ -55,8 +66,8 @@ const openEmail = () => {
     border-radius: 6px;
     border: 3px solid #9d1837;
     transition: 0.5s;
-    &:hover{
-      border: 3px solid #F2064D;
+    &:hover {
+      border: 3px solid #f2064d;
     }
     span {
       color: var(--colors-theme-white, #fff);
