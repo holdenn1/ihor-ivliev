@@ -53,7 +53,7 @@ import MyLinks from "./MyLinks.vue";
   height: 758px;
   overflow: hidden;
   &__content {
-    margin: 110px 0px 116px;
+    margin: 70px 0px 116px;
     display: flex;
     justify-content: space-between;
     .about-text-block {
@@ -124,20 +124,21 @@ import MyLinks from "./MyLinks.vue";
         }
         .my-position-text {
           color: #9d1837;
-          margin: 30px 0;
-          font-family: Karantina;
-          font-size: 28px;
+
+          font-family: Kanit;
+          font-size: 24px;
           font-style: normal;
-          font-weight: 700;
-          line-height: 24px;
-          letter-spacing: 1.5px;
+          font-weight: 500;
+          line-height: 24px; 
+          letter-spacing: 1px;
+          margin: 30px 0;
           padding-left: 50px;
         }
       }
       .my-description {
         color: var(--colors-theme-white, #fff);
         font-family: IBM Plex Sans;
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: 26px;

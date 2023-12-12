@@ -296,6 +296,10 @@ onBeforeUnmount(() => observer.disconnect());
 
           .project-link-img {
             margin-bottom: 10px;
+            transition: 0.3s;
+            &:hover{
+              transform: scale(1.15,1.15);
+            }
           }
           .project-link-name {
             color: #a52140;

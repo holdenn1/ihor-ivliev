@@ -10,17 +10,23 @@
       <nav class="header-nav">
         <ul class="header-nav-list">
           <li class="header-nav-list__item" @click="scrollTop()">About</li>
-          <li class="header-nav-list__item" @click="scrollToElement('skills')">
+          <li
+            class="header-nav-list__item"
+            :style="[currentBlock === 'skills' ? { color: '#dd1853' } : '']"
+            @click="scrollToElement('skills')"
+          >
             Skills
           </li>
           <li
             class="header-nav-list__item"
+            :style="[currentBlock === 'education' ? { color: '#dd1853' } : '']"
             @click="scrollToElement('education')"
           >
             Education
           </li>
           <li
             class="header-nav-list__item"
+            :style="[currentBlock === 'experience' ? { color: '#dd1853' } : '']"
             @click="scrollToElement('experience')"
           >
             Experience
@@ -62,9 +68,12 @@ import { onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
 const blockVisible = ref<boolean>(false);
 const changeHeader = ref<boolean>(false);
 
+const currentBlock = ref("");
+
 function scrollToElement(elementId: string) {
   const element = document.getElementById(elementId);
   if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+  currentBlock.value = elementId;
 }
 
 function scrollTop() {
@@ -72,6 +81,7 @@ function scrollTop() {
     top: 0,
     behavior: "smooth",
   });
+  currentBlock.value = '';
 }
 
 function showBlock() {
@@ -128,8 +138,7 @@ watchEffect(() => {
   }
 
   &:after {
-    
-    content: '';
+    content: "";
     width: 100%;
     height: 100px;
     position: fixed;
@@ -148,7 +157,6 @@ watchEffect(() => {
     transition: 1s;
   }
 
- 
   .header-container {
     height: 100%;
     max-width: 1220px;
@@ -221,7 +229,7 @@ watchEffect(() => {
               span {
                 margin-bottom: 16px;
                 font-family: IBM Plex Sans;
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: 700;
                 line-height: 24px;
                 letter-spacing: 1px;
@@ -238,7 +246,7 @@ watchEffect(() => {
 }
 
 .fixed-header {
-  &::after{
+  &::after {
     opacity: 1;
   }
 }

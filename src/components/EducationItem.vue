@@ -13,7 +13,7 @@ defineProps<{ title: string; description: string; years: string }>();
 <style lang="scss" scoped>
 .education-item {
   max-width: 436px;
-  max-height: 152px;
+  height: 152px;
   margin-bottom: 40px;
   &:last-child {
     margin: 0;
@@ -31,12 +31,25 @@ defineProps<{ title: string; description: string; years: string }>();
     line-height: 24px;
     letter-spacing: 1px;
     margin: 20px 0;
+    margin-left: 20px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: -20px;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+      background-color: #fff;
+    }
   }
   .education-years {
     color: var(--colors-theme-white, #fff);
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1px;
+    padding-left: 20px;
   }
 }
 </style>
